@@ -13,8 +13,8 @@ var Scores = React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: function(mlbData) {
-        if(widget.isMounted()) {
-          widget.setState({
+        if(scores.isMounted()) {
+          scores.setState({
             data: mlbData
           });
         }

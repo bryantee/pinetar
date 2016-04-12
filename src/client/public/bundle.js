@@ -66,8 +66,8 @@
 	      url: this.props.url,
 	      dataType: 'json',
 	      success: function success(mlbData) {
-	        if (widget.isMounted()) {
-	          widget.setState({
+	        if (scores.isMounted()) {
+	          scores.setState({
 	            data: mlbData
 	          });
 	        }
