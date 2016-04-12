@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/erwstout/pinetar/issues"
   },
-  "homepage": "https://github.com/erwstout/pinetar#readme"
+  "homepage": "https://github.com/erwstout/pinetar#readme",
+  "dependencies": {
+    "webpack": "^1.12.15"
+  }
 }
