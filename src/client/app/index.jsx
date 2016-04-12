@@ -22,11 +22,22 @@ var Scores = React.createClass({
     });
   },
   render : function(){
+  if(this.state.data.data.games.game[0]){
+    var homeTeam = this.state.data.data.games.game[0].home_team_name;
+
+    return(
+      <div>
+        <p>{homeTeam}</p>
+      </div>
+    );
+  } else{
     return (
       <div>
         <p>Hold tight...loading the latest scores.</p>
       </div>
     );
+  }
+
   }
 });
 

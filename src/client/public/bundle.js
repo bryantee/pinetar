@@ -75,15 +75,29 @@
 	    });
 	  },
 	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'p',
+	    if (this.state.data.data.games.game[0]) {
+	      var homeTeam = this.state.data.data.games.game[0].home_team_name;
+	
+	      return React.createElement(
+	        'div',
 	        null,
-	        'Hold tight...loading the latest scores.'
-	      )
-	    );
+	        React.createElement(
+	          'p',
+	          null,
+	          homeTeam
+	        )
+	      );
+	    } else {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'p',
+	          null,
+	          'Hold tight...loading the latest scores.'
+	        )
+	      );
+	    }
 	  }
 	});
 	
