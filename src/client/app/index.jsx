@@ -4,9 +4,11 @@ import AwesomeComponent from './AwesomeComponent.jsx';
 
 class App extends React.Component {
   render(){
-    return(
-      <p>Hello!</p>
-      <AwesomeComponent/>
+    return (
+      <div>
+        <p>Hello!</p>
+        <AwesomeComponent />
+      </div>
     );
   }
 }
