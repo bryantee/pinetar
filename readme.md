@@ -1,2 +1,2 @@
 # Pinetar
-Pinetar makes MLB scores beautiful again.
+Pinetar makes MLB scores and stats beautiful again.
