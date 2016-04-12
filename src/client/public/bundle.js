@@ -65,17 +65,17 @@
 	    $.ajax({
 	      url: this.props.url,
 	      dataType: 'json',
-	      success: function success(mlbData) {
+	      success: function success(data) {
 	        if (scores.isMounted()) {
 	          scores.setState({
-	            data: mlbData
+	            data: data
 	          });
 	        }
 	      }
 	    });
 	  },
 	  render: function render() {
-	    if (this.state.mlbData.data.games.game[0]) {
+	    if (this.state.data.data.games.game[0]) {
 	      var homeTeam = this.state.data.data.games.game[0].home_team_name;
 	
 	      return React.createElement(

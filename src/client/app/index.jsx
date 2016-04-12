@@ -12,17 +12,17 @@ var Scores = React.createClass({
     $.ajax({
       url: this.props.url,
       dataType: 'json',
-      success: function(mlbData) {
+      success: function(data) {
         if(scores.isMounted()) {
           scores.setState({
-            data: mlbData
+            data: data
           });
         }
       }
     });
   },
   render : function(){
-  if(this.state.mlbData.data.games.game[0]){
+  if(this.state.data.data.games.game[0]){
     var homeTeam = this.state.data.data.games.game[0].home_team_name;
 
     return(
