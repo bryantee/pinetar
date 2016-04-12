@@ -22,7 +22,7 @@ var Scores = React.createClass({
     });
   },
   render : function(){
-  if(this.state.data.data.games.game[0]){
+  if(this.state.mlbData.data.games.game[0]){
     var homeTeam = this.state.data.data.games.game[0].home_team_name;
 
     return(
