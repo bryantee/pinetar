@@ -1,16 +1,36 @@
-import React from 'react';
-import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-class App extends React.Component {
-  render(){
+var Scores = React.createClass({
+  getInitialState: function() {
+    return {
+         data : undefined
+    };
+  },
+  componentDidMount: function() {
+    var scores = this;
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(mlbData) {
+        if(widget.isMounted()) {
+          widget.setState({
+            data: mlbData
+          });
+        }
+      }
+    });
+  },
+  render : function(){
     return (
       <div>
-        <p>Hello!</p>
-        <AwesomeComponent />
+        <p>Hold tight...loading the latest scores.</p>
       </div>
     );
   }
-}
+});
 
-render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+  <Scores url="app/mlb-scoreboard.json"/>,
+  document.getElementById('app')
+);
