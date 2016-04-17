@@ -18,6 +18,9 @@ var config = {
         loader: 'babel'
       }
     ]
+  },
+  externals: {
+    'react': 'React'
   }
 };
 
