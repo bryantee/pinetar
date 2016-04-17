@@ -1,3 +1,5 @@
+var ReactDOM = require('react-dom');
+
 var MLBScores = React.createClass({
   getInitialState: function() {
     return {
