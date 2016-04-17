@@ -14,7 +14,7 @@ var MLBScores = React.createClass({
 
     this.serverRequest = $.get(this.props.feed, function(result) {
 
-    var scoreFeed = JSON.parse(result).data;
+    var scoreFeed = result.data;
 
     if( scoreFeed.games.game[0].linescore ){
     	var homeScore = scoreFeed.games.game[0].linescore.r.home;
