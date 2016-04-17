@@ -19,9 +19,11 @@ var config = {
       }
     ]
   },
-  externals: {
-    'react': 'React'
-  }
+  plugins: [
+        new webpack.ProvidePlugin({
+            "React": "react",
+        }),
+  ]
 };
 
 module.exports = config;
