@@ -41,5 +41,5 @@ var MLBScores = React.createClass({
 });
 
 ReactDOM.render( < MLBScores feed= "http://198.199.92.64/src/client/app/mlb-scoreboard.json" / > ,
-  document.getElementById('container')
+  document.getElementById('app')
 );
