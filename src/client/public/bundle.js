@@ -59,7 +59,10 @@
 	      hometeam: '',
 	      homescore: '',
 	      awayteam: '',
-	      awayscore: ''
+	      awayscore: '',
+	      status: 'Pre-game',
+	      inning: '1',
+	      inningState: 'Top'
 	    };
 	  },
 	
@@ -67,7 +70,10 @@
 	
 	    this.serverRequest = $.get(this.props.feed, function (result) {
 	
-	      var scoreFeed = result.data;
+	      var scoreFeed = result.data,
+	          status = scoreFeed.games.game[0].status.status,
+	          inning = scoreFeed.games.game[0].status.inning,
+	          inningState = scoreFeed.games.game[0].status.inning_state;
 	
 	      if (scoreFeed.games.game[0].linescore) {
 	        var homeScore = scoreFeed.games.game[0].linescore.r.home;
@@ -78,7 +84,10 @@
 	        hometeam: scoreFeed.games.game[0].home_team_name,
 	        homescore: homeScore,
 	        awayteam: scoreFeed.games.game[0].away_team_name,
-	        awayscore: awayScore
+	        awayscore: awayScore,
+	        status: status,
+	        inning: inning,
+	        inningState: inningState
 	      });
 	    }.bind(this));
 	  },
@@ -92,16 +101,31 @@
 	      'div',
 	      null,
 	      this.state.hometeam,
+	      ' ',
 	      this.state.homescore,
 	      ' vs. ',
 	      this.state.awayteam,
+	      ' ',
 	      this.state.awayscore,
-	      ' '
+	      React.createElement('hr', null),
+	      this.state.status,
+	      ' ',
+	      this.state.inningState,
+	      ' ',
+	      this.state.inning
 	    );
 	  }
 	});
 	
-	ReactDOM.render(React.createElement(MLBScores, { feed: 'http://198.199.92.64/src/client/app/mlb-scoreboard.json' }), document.getElementById('app'));
+	function render() {
+	  ReactDOM.render(React.createElement(MLBScores, { feed: 'http://198.199.92.64/src/client/app/mlb-scoreboard.json' }), document.getElementById('app'));
+	}
+	
+	setInterval(function () {
+	  console.log('Scores were rendered.');
+	  render();
+	}, 60000);
+	render();
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! react */ 1)))
 
 /***/ },
