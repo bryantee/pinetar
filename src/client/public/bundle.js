@@ -65,10 +65,9 @@
 	      inningState: 'Top'
 	    };
 	  },
+	  updateUI: function updateUI(props) {
 	
-	  componentWillReceiveProps: function componentWillReceiveProps() {
-	
-	    this.serverRequest = $.get(this.props.feed, function (result) {
+	    this.serverRequest = $.get(props.feed, function (result) {
 	
 	      var scoreFeed = result.data,
 	          status = scoreFeed.games.game[7].status.status,
@@ -92,30 +91,13 @@
 	    }.bind(this));
 	  },
 	
+	
 	  componentDidMount: function componentDidMount() {
+	    this.updateUI(this.props);
+	  },
 	
-	    this.serverRequest = $.get(this.props.feed, function (result) {
-	
-	      var scoreFeed = result.data,
-	          status = scoreFeed.games.game[7].status.status,
-	          inning = scoreFeed.games.game[7].status.inning,
-	          inningState = scoreFeed.games.game[7].status.inning_state;
-	
-	      if (scoreFeed.games.game[7].linescore) {
-	        var homeScore = scoreFeed.games.game[7].linescore.r.home;
-	        var awayScore = scoreFeed.games.game[7].linescore.r.away;
-	      }
-	
-	      this.setState({
-	        hometeam: scoreFeed.games.game[7].home_team_name,
-	        homescore: homeScore,
-	        awayteam: scoreFeed.games.game[7].away_team_name,
-	        awayscore: awayScore,
-	        status: status,
-	        inning: inning,
-	        inningState: inningState
-	      });
-	    }.bind(this));
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	    this.updateUI(newProps);
 	  },
 	
 	  componentWillUnmount: function componentWillUnmount() {
