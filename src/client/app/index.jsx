@@ -13,6 +13,33 @@ var MLBScores = React.createClass({
     };
   },
 
+  componentWillReceiveProps: function() {
+
+    this.serverRequest = $.get(this.props.feed, function(result) {
+
+    var scoreFeed = result.data,
+        status  = scoreFeed.games.game[4].status.status,
+        inning  = scoreFeed.games.game[4].status.inning,
+        inningState  = scoreFeed.games.game[4].status.inning_state;
+
+    if( scoreFeed.games.game[4].linescore ){
+      var homeScore = scoreFeed.games.game[4].linescore.r.home;
+      var awayScore = scoreFeed.games.game[4].linescore.r.away;
+    }
+
+      this.setState({
+        hometeam: scoreFeed.games.game[4].home_team_name,
+        homescore: homeScore,
+        awayteam: scoreFeed.games.game[4].away_team_name,
+        awayscore: awayScore,
+        status: status,
+        inning: inning,
+        inningState: inningState
+      });
+
+    }.bind(this));
+  },
+
   componentDidMount: function() {
 
     this.serverRequest = $.get(this.props.feed, function(result) {
