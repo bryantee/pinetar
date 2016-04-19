@@ -18,19 +18,19 @@ var MLBScores = React.createClass({
     this.serverRequest = $.get(this.props.feed, function(result) {
 
     var scoreFeed = result.data,
-        status  = scoreFeed.games.game[4].status.status,
-        inning  = scoreFeed.games.game[4].status.inning,
-        inningState  = scoreFeed.games.game[4].status.inning_state;
+        status  = scoreFeed.games.game[7].status.status,
+        inning  = scoreFeed.games.game[7].status.inning,
+        inningState  = scoreFeed.games.game[7].status.inning_state;
 
-    if( scoreFeed.games.game[4].linescore ){
-      var homeScore = scoreFeed.games.game[4].linescore.r.home;
-      var awayScore = scoreFeed.games.game[4].linescore.r.away;
+    if( scoreFeed.games.game[7].linescore ){
+      var homeScore = scoreFeed.games.game[7].linescore.r.home;
+      var awayScore = scoreFeed.games.game[7].linescore.r.away;
     }
 
       this.setState({
-        hometeam: scoreFeed.games.game[4].home_team_name,
+        hometeam: scoreFeed.games.game[7].home_team_name,
         homescore: homeScore,
-        awayteam: scoreFeed.games.game[4].away_team_name,
+        awayteam: scoreFeed.games.game[7].away_team_name,
         awayscore: awayScore,
         status: status,
         inning: inning,
@@ -45,19 +45,19 @@ var MLBScores = React.createClass({
     this.serverRequest = $.get(this.props.feed, function(result) {
 
     var scoreFeed = result.data,
-        status  = scoreFeed.games.game[4].status.status,
-        inning  = scoreFeed.games.game[4].status.inning,
-        inningState  = scoreFeed.games.game[4].status.inning_state;
+        status  = scoreFeed.games.game[7].status.status,
+        inning  = scoreFeed.games.game[7].status.inning,
+        inningState  = scoreFeed.games.game[7].status.inning_state;
 
-    if( scoreFeed.games.game[4].linescore ){
-    	var homeScore = scoreFeed.games.game[4].linescore.r.home;
-      var awayScore = scoreFeed.games.game[4].linescore.r.away;
+    if( scoreFeed.games.game[7].linescore ){
+    	var homeScore = scoreFeed.games.game[7].linescore.r.home;
+      var awayScore = scoreFeed.games.game[7].linescore.r.away;
     }
 
       this.setState({
-        hometeam: scoreFeed.games.game[4].home_team_name,
+        hometeam: scoreFeed.games.game[7].home_team_name,
         homescore: homeScore,
-        awayteam: scoreFeed.games.game[4].away_team_name,
+        awayteam: scoreFeed.games.game[7].away_team_name,
         awayscore: awayScore,
         status: status,
         inning: inning,
