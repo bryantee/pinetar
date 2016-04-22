@@ -5,7 +5,7 @@ var scoreBox = React.createClass({
     var gameDetails = this.props.scoreFeed.map(function(game){
       return <div className="game-detail">{game.home_team_name}</div>
     });
-    return <div>{gameDetails}</div>;
+    return <div><h2>Game</h2>{gameDetails}</div>;
   }
 });
 
