@@ -2,9 +2,12 @@ var ReactDOM = require('react-dom');
 
 var scoreBox = React.createClass({
   render: function(){
-    var gameDetails = this.props.scoreFeed.map(function(game){
-      return <div className="game-detail">{game.home_team_name}</div>
-    });
+
+      $.each(scoreFeed, function(i,v){
+        return <div className="game-detail">{v.home_team_name}</div>
+      })
+
+
     return <div><h2>Game</h2>{gameDetails}</div>;
   }
 });
@@ -12,7 +15,7 @@ var scoreBox = React.createClass({
 var MLBScores = React.createClass({
   updateUI(props){
     this.serverRequest = $.get(props.feed, function(result){
-      var scoreFeed = result.data.games;
+      var scoreFeed = result.data.games.game;
     })
   },
 

@@ -55,13 +55,15 @@
 	  displayName: 'scoreBox',
 	
 	  render: function render() {
-	    var gameDetails = this.props.scoreFeed.map(function (game) {
+	
+	    $.each(scoreFeed, function (i, v) {
 	      return React.createElement(
 	        'div',
 	        { className: 'game-detail' },
-	        game.home_team_name
+	        v.home_team_name
 	      );
 	    });
+	
 	    return React.createElement(
 	      'div',
 	      null,
@@ -79,7 +81,7 @@
 	  displayName: 'MLBScores',
 	  updateUI: function updateUI(props) {
 	    this.serverRequest = $.get(props.feed, function (result) {
-	      var scoreFeed = result.data.games;
+	      var scoreFeed = result.data.games.game;
 	    });
 	  },
 	
