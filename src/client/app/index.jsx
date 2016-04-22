@@ -1,30 +1,17 @@
 var ReactDOM = require('react-dom');
 
 var MLBScores = React.createClass({
-  getInitialState: function() {
-    return {
-      hometeam: '',
-      homescore: '',
-      awayteam: '',
-      awayscore: '',
-      status: 'Pre-game',
-      inning: '1',
-      inningState: 'Top'
-    };
-  },
   updateUI(props){
 
       this.serverRequest = $.get(props.feed, function(result) {
 
-    var scoreFeed = result.data,
-        status  = scoreFeed.games.game[7].status.status,
-        inning  = scoreFeed.games.game[7].status.inning,
-        inningState  = scoreFeed.games.game[7].status.inning_state;
+    var scoreFeed = result.data;
 
-    if( scoreFeed.games.game[7].linescore ){
-        var homeScore = scoreFeed.games.game[7].linescore.r.home;
-      var awayScore = scoreFeed.games.game[7].linescore.r.away;
-    }
+    var scorebox = this.props.scoreFeed.map(function(game){
+      return <div className="scorebox">{game.home_team_name}</div>;
+    });
+
+
 
       this.setState({
         hometeam: scoreFeed.games.game[7].home_team_name,

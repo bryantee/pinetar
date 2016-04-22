@@ -47,37 +47,25 @@
   \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(React) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(React) {"use strict";
 	
 	var ReactDOM = __webpack_require__(/*! react-dom */ 32);
 	
 	var MLBScores = React.createClass({
-	  displayName: 'MLBScores',
-	
-	  getInitialState: function getInitialState() {
-	    return {
-	      hometeam: '',
-	      homescore: '',
-	      awayteam: '',
-	      awayscore: '',
-	      status: 'Pre-game',
-	      inning: '1',
-	      inningState: 'Top'
-	    };
-	  },
+	  displayName: "MLBScores",
 	  updateUI: function updateUI(props) {
 	
 	    this.serverRequest = $.get(props.feed, function (result) {
 	
-	      var scoreFeed = result.data,
-	          status = scoreFeed.games.game[7].status.status,
-	          inning = scoreFeed.games.game[7].status.inning,
-	          inningState = scoreFeed.games.game[7].status.inning_state;
+	      var scoreFeed = result.data;
 	
-	      if (scoreFeed.games.game[7].linescore) {
-	        var homeScore = scoreFeed.games.game[7].linescore.r.home;
-	        var awayScore = scoreFeed.games.game[7].linescore.r.away;
-	      }
+	      var scorebox = this.props.scoreFeed.map(function (game) {
+	        return React.createElement(
+	          "div",
+	          { className: "scorebox" },
+	          game.home_team_name
+	        );
+	      });
 	
 	      this.setState({
 	        hometeam: scoreFeed.games.game[7].home_team_name,
@@ -106,27 +94,27 @@
 	
 	  render: function render() {
 	    return React.createElement(
-	      'div',
+	      "div",
 	      null,
 	      this.state.hometeam,
-	      ' ',
+	      " ",
 	      this.state.homescore,
-	      ' vs. ',
+	      " vs. ",
 	      this.state.awayteam,
-	      ' ',
+	      " ",
 	      this.state.awayscore,
-	      React.createElement('hr', null),
+	      React.createElement("hr", null),
 	      this.state.status,
-	      ' ',
+	      " ",
 	      this.state.inningState,
-	      ' ',
+	      " ",
 	      this.state.inning
 	    );
 	  }
 	});
 	
 	function render() {
-	  ReactDOM.render(React.createElement(MLBScores, { feed: 'http://198.199.92.64/src/client/app/mlb-scoreboard.json' }), document.getElementById('app'));
+	  ReactDOM.render(React.createElement(MLBScores, { feed: "http://198.199.92.64/src/client/app/mlb-scoreboard.json" }), document.getElementById('app'));
 	}
 	
 	setInterval(function () {
