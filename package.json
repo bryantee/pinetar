@@ -1,0 +1,26 @@
+{
+  "name": "pinetar",
+  "version": "0.0.1",
+  "description": "Pinetar makes baseball scores beautiful again.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erwstout/pinetar.git"
+  },
+  "keywords": [
+    "Pinetar",
+    "Baseball",
+    "MLB",
+    "React",
+    "Scores"
+  ],
+  "author": "Eric Stout <http://ericwstout.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erwstout/pinetar/issues"
+  },
+  "homepage": "https://github.com/erwstout/pinetar#readme"
+}
