@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/erwstout/pinetar/issues"
   },
-  "homepage": "https://github.com/erwstout/pinetar#readme"
+  "homepage": "https://github.com/erwstout/pinetar#readme",
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
 }
