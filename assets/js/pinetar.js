@@ -1,8 +1,5 @@
 /* Pinetar by Eric Stout */
 
-// class SingleGame extends React.Component{
-//
-// }
 
 class GameBox extends React.Component{
 
