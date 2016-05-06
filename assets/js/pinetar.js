@@ -1,5 +1,11 @@
 /* Pinetar by Eric Stout */
-
+class SingleGame extends React.Component{
+  render(){
+    return(
+      <div>{this.props.homeTeam}</div>
+    );
+  }
+}
 
 class GameBox extends React.Component{
 
@@ -33,8 +39,13 @@ class GameBox extends React.Component{
     });
   }
 
+
   render() {
-    return( <div>Hello World</div> );
+    return this.state.games.map((games)) => {
+      return(
+        <SingleGame homeTeam={game.data.game.home_team_name} />
+      );
+    });
   }
 }
 
