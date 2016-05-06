@@ -45,7 +45,7 @@ class GameBox extends React.Component{
       return(
         <SingleGame homeTeam={game.game.home_team_name} />
       );
-    }, this);
+    });
   }
 }
 
