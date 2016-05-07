@@ -44,7 +44,7 @@ class GameBox extends React.Component{
 
     return games.map((games) => {
       return(
-        <SingleGame hometeam={game.data.game.home_team_name} />
+        <SingleGame homeTeam={game.data.game.home_team_name} />
       );
     });
   }
