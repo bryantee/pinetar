@@ -42,7 +42,7 @@ class GameBox extends React.Component{
   _mapGameScores(){
     const games = this.state.games;
 
-    return games.map((games) => {
+    return this.games.map((games) => {
       return(
         <SingleGame homeTeam={games.game.home_team_name} />
       );
