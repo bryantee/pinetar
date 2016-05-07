@@ -13,7 +13,7 @@ class GameBox extends React.Component{
     super();
 
     this.state = {
-      games: []
+      games: {[]}
     };
   }
 
