@@ -34,7 +34,7 @@ class GameBox extends React.Component{
       method: 'GET',
       url: 'http://pinetar-app.com/src/client/app/mlb-scoreboard.json',
       success: function(games){
-        this.setState({games: data.data.games.game});
+        this.setState({games: games.data.games.game});
       }.bind(this)
     });
   }
