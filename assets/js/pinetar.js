@@ -52,7 +52,7 @@ class GameBox extends React.Component{
   render() {
     const gameList = this._mapGameScores();
     return(
-      this._mapGameScores();
+      {gameList}
     );
   }
 }
