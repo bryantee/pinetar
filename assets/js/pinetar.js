@@ -41,7 +41,7 @@ class UpcomingGame extends React.Component{
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
         <h4>
-          {this.props.status} | {this.props.inningState} {this.props.inning}
+          {this.props.status}
         </h4>
         <p>
           Starting Pitcher: {this.props.homeStartingPitcher} <br />
@@ -99,8 +99,6 @@ class GameBox extends React.Component{
       if( status == 'Preview' || status == 'Pre-Game'){
 
         let status = games.home_time + ' ' + games.home_time_zone, // Change the Preview status text to show Start Time
-            inningState = '',
-            inning = '',
             homeStartingPitcher = games.home_probable_pitcher.name_display_roster,
             awayStartingPitcher = games.away_probable_pitcher.name_display_roster;
 
@@ -109,8 +107,6 @@ class GameBox extends React.Component{
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
-            inningState={inningState}
-            inning={inning}
             homeStartingPitcher={homeStartingPitcher}
             awayStartingPitcher={awayStartingPitcher}
           />
