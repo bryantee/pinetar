@@ -3,7 +3,7 @@
 class FinalGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center game-card">
+      <div className="col-6 text-center game-card">
         <div className="game-card--container container">
           <div className="row">
             <div className="sm-col-5 col-5 text-center">
@@ -54,7 +54,7 @@ class FinalGame extends React.Component{
 class CurrentGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center game-card">
+      <div className="col-6 text-center game-card">
         <div className="game-card--container">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
@@ -74,7 +74,7 @@ class CurrentGame extends React.Component{
 class UpcomingGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center game-card">
+      <div className="col-6 text-center game-card">
         <div className="game-card--container">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
