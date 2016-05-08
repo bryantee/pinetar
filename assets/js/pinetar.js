@@ -3,7 +3,7 @@
 class FinalGame extends React.Component{
   render(){
     return(
-      <div>
+      <div className="col-4 text-center">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -22,7 +22,7 @@ class FinalGame extends React.Component{
 class CurrentGame extends React.Component{
   render(){
     return(
-      <div>
+      <div className="col-4 text-center">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -40,7 +40,7 @@ class CurrentGame extends React.Component{
 class UpcomingGame extends React.Component{
   render(){
     return(
-      <div>
+      <div className="col-4 text-center">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -158,8 +158,8 @@ class GameBox extends React.Component{
   render() {
     const gameList = this._mapGameScores();
     return(
-      <div>
-      {gameList}
+      <div className="row">
+        {gameList}
       </div>
     );
   }
