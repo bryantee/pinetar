@@ -4,6 +4,9 @@
 // Color Variables
 $black:     #111111;
 
+// Font Families
+$open:      'Open Sans', Helvetica, sans-serif;
+
 *{
   box-sizing: border-box;
 }
@@ -17,6 +20,15 @@ html, body{
 body{
   background: white;
   border-top: 15px solid $black;
+  font-family: $open;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $open;
+}
+
+header{
+  margin-bottom: 40px;
 }
 
 img{
