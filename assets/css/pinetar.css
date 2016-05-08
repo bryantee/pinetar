@@ -378,7 +378,8 @@ body {
   font-family: "Open Sans", Helvetica, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", Helvetica, sans-serif; }
+  font-family: "Open Sans", Helvetica, sans-serif;
+  text-transform: uppercase; }
 
 header {
   margin-bottom: 40px; }
@@ -392,4 +393,5 @@ img {
 
 .game-card--container {
   border: 5px solid #111111;
-  padding: 10px; }
+  padding: 10px;
+  box-shadow: 0 5px 37px -7px #ccc; }
