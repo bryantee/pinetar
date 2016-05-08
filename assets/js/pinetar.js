@@ -114,17 +114,25 @@ class UpcomingGame extends React.Component{
   render(){
     return(
       <div className="col-6 text-center game-card">
-        <div className="game-card--container">
-        <h2>
-        {this.props.homeTeam} vs. {this.props.awayTeam}
-        </h2>
-        <h4>
-          {this.props.status}
-        </h4>
-        <p>
-          Starting Pitcher: {this.props.homeStartingPitcher} <br />
-          Starting Pitcher: {this.props.awayStartingPitcher}
-        </p>
+        <div className="game-card--container container">
+          <div className="row">
+            <h2>
+            {this.props.awayTeam} at {this.props.homeTeam}
+            </h2>
+            <h4>
+              {this.props.status}
+            </h4>
+          </div>
+
+          <div className="row">
+            <div className="col-12 text-left game-notes">
+              <p>
+                <strong>{this.props.homeAbbrev} Starting Pitcher:</strong> {this.props.homeStartingPitcher} ({this.props.homePitcherERA} ERA - {this.props.homePitcherRecord}) <br />
+                <strong>{this.props.awayAbbrev} Starting Pitcher:</strong> {this.props.awayStartingPitcher} ({this.props.awayPitcherERA} ERA - {this.props.awayPitcherRecord})
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     );
@@ -180,19 +188,27 @@ class GameBox extends React.Component{
         let status = games.home_time + ' ' + games.home_time_zone, // Change the Preview status text to show Start Time
             homeStartingPitcher = games.home_probable_pitcher.name_display_roster,
             awayStartingPitcher = games.away_probable_pitcher.name_display_roster,
-            awayScore           = '0',
-            homeScore           = '0';
+            homeAbbrev          = games.home_name_abbrev,
+            awayAbbrev          = games.away_name_abbrev,
+            homePitcherERA      = games.home_probable_pitcher.era,
+            homePitcherRecord   = games.home_probable_pitcher.s_wins + '-' + games.home_probable_pitcher.s_losses,
+            awayPitcherERA      = games.away_probable_pitcher.era,
+            awayPitcherRecord   = games.away_probable_pitcher.s_wins + '-' + games.away_probable_pitcher.s_losses;
 
         return(
           <UpcomingGame
             key={games.home_team_id}
             homeTeam={homeTeam}
+            homeAbbrev={homeAbbrev}
             awayTeam={awayTeam}
+            awayAbbrev={awayAbbrev}
             status={status}
             homeStartingPitcher={homeStartingPitcher}
+            homePitcherERA={homePitcherERA}
+            homePitcherRecord={homePitcherRecord}
             awayStartingPitcher={awayStartingPitcher}
-            homeScore={homeScore}
-            awayScore={awayScore}
+            awayPitcherERA={awayPitcherERA}
+            awayPitcherRecord={awayPitcherRecord}
           />
         );
 
