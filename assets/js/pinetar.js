@@ -111,6 +111,8 @@ class GameBox extends React.Component{
             status={status}
             inningState={inningState}
             inning={inning}
+            homeStartingPitcher={homeStartingPitcher}
+            awayStartingPitcher={awayStartingPitcher}
           />
         );
 
