@@ -3,7 +3,7 @@
 class FinalGame extends React.Component{
   render(){
     return(
-      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+      <div>
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -18,7 +18,7 @@ class FinalGame extends React.Component{
 class CurrentGame extends React.Component{
   render(){
     return(
-      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+      <div>
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -36,7 +36,7 @@ class CurrentGame extends React.Component{
 class UpcomingGame extends React.Component{
   render(){
     return(
-      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+      <div>
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
