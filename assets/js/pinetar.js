@@ -9,7 +9,6 @@ class SingleGame extends React.Component{
         <h4>
           {this.props.status} | {this.props.inningState} {this.props.inning}
         </h4>
-        <span>{this.props.homeScore} | {this.props.awayScore} </span>
       </div>
     );
   }
@@ -56,6 +55,12 @@ class GameBox extends React.Component{
             status   = games.status.status,
             inningState =  games.status.inning_state,
             inning   =  games.status.inning;
+
+      // if game is in preview
+      if( status == 'Preview'){
+        status = games.home_time + '' + games.home_time_zone;
+      }
+
       return(
         <SingleGame
           homeTeam={homeTeam}
