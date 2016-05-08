@@ -9,13 +9,15 @@ var sass          = require('gulp-sass'),
     rename        = require('gulp-rename');
 
 // File Paths
-var sassFiles   = ['./assets/scss/main.scss'],
+var sassFiles   = ['./assets/scss/pinetar.scss'],
     cssFiles    = ['./assets/css/*.css', '!./assets/css/*.min.css'];
 
 // Compile Sass
 gulp.task('sass', function() {
   return gulp.src( sassFiles )
-      .pipe(sass()
+      .pipe(sass({
+        includePaths: ['./node_modules/ginger-grid/']
+      })
         .on('error', sass.logError))
         .on('error', notify.onError("Error compiling SASS!")
       )
