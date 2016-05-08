@@ -97,7 +97,7 @@ class GameBox extends React.Component{
 
         let status = games.home_time + ' ' + games.home_time_zone, // Change the Preview status text to show Start Time
             inningState = '',
-            inning = '',
+            inning = '';
             //homeStartingPitcher = games.home_probable_pitcher.name_display_roster,
             //awayStartingPitcher = games.away_probable_pitcher.name_display_roster;
 
