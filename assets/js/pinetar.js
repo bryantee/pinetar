@@ -3,11 +3,11 @@ class SingleGame extends React.Component{
   render(){
     return(
       <div>
-        <h3>
+        <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
-        </h3>
+        </h2>
         <h4>
-          {this.props.status}
+          {this.props.status} | {this.props.inningState} {this.props.inning}
         </h4>
       </div>
     );
@@ -55,6 +55,8 @@ class GameBox extends React.Component{
           homeTeam={games.home_team_name}
           awayTeam={games.away_team_name}
           status={games.status.status}
+          inningState={games.status.inning_state}
+          inning={games.status.inning}
         />
       );
     });
