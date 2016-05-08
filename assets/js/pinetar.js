@@ -2,7 +2,14 @@
 class SingleGame extends React.Component{
   render(){
     return(
-      <div>{this.props.homeTeam} vs. {this.props.awayTeam}</div>
+      <div>
+        <h3>
+        {this.props.homeTeam} vs. {this.props.awayTeam}
+        </h3>
+        <h4>
+          {this.props.status}
+        </h4>
+      </div>
     );
   }
 }
@@ -44,7 +51,11 @@ class GameBox extends React.Component{
 
     return games.map((games) => {
       return(
-        <SingleGame homeTeam={games.home_team_name} awayTeam={games.away_team_name} />
+        <SingleGame
+          homeTeam={games.home_team_name}
+          awayTeam={games.away_team_name}
+          status={games.status.status}
+        />
       );
     });
   }
