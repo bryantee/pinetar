@@ -90,7 +90,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left">
               <h4>
-                {this.props.status} {this.props.inningState} {this.props.inning}
+                {this.props.inningState} {this.props.inning}
               </h4>
             </div>
           </div>
