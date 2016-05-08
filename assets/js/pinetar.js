@@ -114,7 +114,9 @@ class GameBox extends React.Component{
 
       } else if ( status == 'Final' || status == 'Game Over') {
         // if the game is final
-        status = 'Final';
+        let status = 'Final',
+            winningPitcher = games.winning_pitcher.name_display_roster,
+            losingPitcher  = games.losing_pitcher.name_display_roster;
 
         return(
           <FinalGame
