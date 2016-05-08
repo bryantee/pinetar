@@ -1,16 +1,38 @@
 /* Pinetar by Eric Stout */
 class SingleGame extends React.Component{
   render(){
-    return(
-      <div>
-        <h2>
-        {this.props.homeTeam} vs. {this.props.awayTeam}
-        </h2>
-        <h4>
-          {this.props.status} | {this.props.inningState} {this.props.inning}
-        </h4>
-      </div>
-    );
+    if( this.props.status == 'In Progress' || this.props.status == 'Final'){
+      return(
+        <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+          <h2>
+          {this.props.homeTeam} vs. {this.props.awayTeam}
+          </h2>
+          <h4>
+            {this.props.status} | {this.props.inningState} {this.props.inning}
+          </h4>
+          <p>Current Batter: {this.props.currentBatter} <br />
+            Current Pitcher: {this.props.currentPitcher}
+          </p>
+
+        </div>
+      );
+    } else{
+      return(
+        <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+          <h2>
+          {this.props.homeTeam} vs. {this.props.awayTeam}
+          </h2>
+          <h4>
+            {this.props.status} | {this.props.inningState} {this.props.inning}
+          </h4>
+          <p>Starting Pitcher: {this.props.homeStartingPitcher} <br />
+            Starting Pitcher: {this.props.awayStartingPitcher}
+          </p>
+
+        </div>
+      );
+    }
+
   }
 }
 
@@ -56,22 +78,47 @@ class GameBox extends React.Component{
             inningState =  games.status.inning_state,
             inning   =  games.status.inning;
 
+
       // if game is in preview
       if( status == 'Preview' || status == 'Pre-Game'){
-        status = games.home_time + ' ' + games.home_time_zone; // Change the Preview status text to show Start Time
-        inningState = '';
-        inning = '';
+
+        let status = games.home_time + ' ' + games.home_time_zone, // Change the Preview status text to show Start Time
+            inningState = '',
+            inning = '',
+            homeStartingPitcher = games.home_probable_pitcher.name_display_roster,
+            awayStartingPitcher = games.away_probable_pitcher.name_display_roster;
+
+        return(
+          <SingleGame
+            homeTeam={homeTeam}
+            awayTeam={awayTeam}
+            status={status}
+            inningState={inningState}
+            inning={inning}
+            homeStartingPitcher={homeStartingPitcher}
+            awayStartingPitcher={awayStartingPitcher}
+          />
+        );
+
+      } else{
+
+        // if the game is current or final
+        let currentPitcher  = games.pitcher.name_display_roster,
+            currentBatter   =  games.batter.name_display_roster;
+
+        return(
+          <SingleGame
+            homeTeam={homeTeam}
+            awayTeam={awayTeam}
+            status={status}
+            inningState={inningState}
+            inning={inning}
+            currentBatter={currentBatter}
+            currentPitcher={currentPitcher}
+          />
+        );
       }
 
-      return(
-        <SingleGame
-          homeTeam={homeTeam}
-          awayTeam={awayTeam}
-          status={status}
-          inningState={inningState}
-          inning={inning}
-        />
-      );
     });
   }
 
