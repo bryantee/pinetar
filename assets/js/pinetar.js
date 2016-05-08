@@ -9,6 +9,7 @@ class SingleGame extends React.Component{
         <h4>
           {this.props.status} | {this.props.inningState} {this.props.inning}
         </h4>
+        <span>{this.props.linescore.r.home} | {this.props.linescore.r.away} </span>
       </div>
     );
   }
