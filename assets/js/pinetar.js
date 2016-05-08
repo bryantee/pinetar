@@ -129,9 +129,7 @@ class GameBox extends React.Component{
 
     return games.map((games) => {
         let homeTeam =  games.home_team_name,
-            homeScore = games.linescore.r.home,
             awayTeam =  games.away_team_name,
-            awayScore = games.linescore.r.away,
             status   = games.status.status,
             inningState =  games.status.inning_state,
             inning   =  games.status.inning;
@@ -161,6 +159,8 @@ class GameBox extends React.Component{
       } else if ( status == 'Final' || status == 'Game Over') {
         // if the game is final
         let status = 'Final',
+            awayScore = games.linescore.r.away,
+            homeScore = games.linescore.r.home,
             winningPitcher = games.winning_pitcher.name_display_roster,
             losingPitcher  = games.losing_pitcher.name_display_roster;
 
@@ -181,6 +181,8 @@ class GameBox extends React.Component{
 
         // if the game is current
         let currentPitcher  = games.pitcher.name_display_roster,
+            awayScore       = games.linescore.r.away,
+            homeScore       = games.linescore.r.home,
             currentBatter   =  games.batter.name_display_roster;
 
         return(
