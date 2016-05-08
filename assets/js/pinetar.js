@@ -4,13 +4,43 @@ class FinalGame extends React.Component{
   render(){
     return(
       <div className="col-4 text-center game-card">
-        <div className="game-card--container">
-        <h2>
-        {this.props.homeTeam} vs. {this.props.awayTeam}
-        </h2>
-        <h4>
-          {this.props.status} | {this.props.inningState} {this.props.inning}
-        </h4>
+        <div className="game-card--container container">
+          <div className="row">
+            <div className="sm-col-5 col-5 text-center">
+              <h2>
+                {this.props.awayTeam}
+              </h2>
+            </div>
+            <div className="sm-col-2 col-2 text-center">
+              <h2> vs. </h2>
+            </div>
+            <div className="sm-col-5 col-5 text-center">
+              <h2>
+                {this.props.homeTeam}
+              </h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 text-center">
+              <h4>
+                {this.props.status} {this.props.inningState} {this.props.inning}
+              </h4>
+            </div>
+          </div>
+          <div className="row">
+            <div className="sm-col-5 col-5 text-center">
+              <h2>
+                {this.props.awayScore}
+              </h2>
+            </div>
+            <div className="sm-col-5 col-5 text-center">
+              <h2>
+                {this.props.homeScore}
+              </h2>
+            </div>
+          </div>
+
+
         <p>
           Winning Pitcher: {this.props.winningPitcher} <br />
           Losing Pitcher: {this.props.losingPitcher}
@@ -99,7 +129,9 @@ class GameBox extends React.Component{
 
     return games.map((games) => {
         let homeTeam =  games.home_team_name,
+            homeScore = games.linescore.r.home,
             awayTeam =  games.away_team_name,
+            awayScore = games.linescore.r.away,
             status   = games.status.status,
             inningState =  games.status.inning_state,
             inning   =  games.status.inning;
@@ -110,7 +142,9 @@ class GameBox extends React.Component{
 
         let status = games.home_time + ' ' + games.home_time_zone, // Change the Preview status text to show Start Time
             homeStartingPitcher = games.home_probable_pitcher.name_display_roster,
-            awayStartingPitcher = games.away_probable_pitcher.name_display_roster;
+            awayStartingPitcher = games.away_probable_pitcher.name_display_roster,
+            awayScore           = '0',
+            homeScore           = '0';
 
         return(
           <UpcomingGame
@@ -119,6 +153,8 @@ class GameBox extends React.Component{
             status={status}
             homeStartingPitcher={homeStartingPitcher}
             awayStartingPitcher={awayStartingPitcher}
+            homeScore={homeScore}
+            awayScore={awayScore}
           />
         );
 
@@ -137,6 +173,8 @@ class GameBox extends React.Component{
             inning={inning}
             winningPitcher={winningPitcher}
             losingPitcher={losingPitcher}
+            homeScore={homeScore}
+            awayScore={awayScore}
           />
         );
       } else{
@@ -154,6 +192,8 @@ class GameBox extends React.Component{
             inning={inning}
             currentBatter={currentBatter}
             currentPitcher={currentPitcher}
+            homeScore={homeScore}
+            awayScore={awayScore}
           />
         );
       }
