@@ -146,6 +146,7 @@ class GameBox extends React.Component{
 
         return(
           <UpcomingGame
+            key={games.home_team_id}
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
@@ -166,6 +167,7 @@ class GameBox extends React.Component{
 
         return(
           <FinalGame
+            key={games.home_team_id}
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
@@ -187,6 +189,7 @@ class GameBox extends React.Component{
 
         return(
           <CurrentGame
+            key={games.home_team_id}
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
