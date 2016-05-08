@@ -9,7 +9,7 @@ class SingleGame extends React.Component{
         <h4>
           {this.props.status} | {this.props.inningState} {this.props.inning}
         </h4>
-        <span>{this.props.linescore.r.home} | {this.props.linescore.r.away} </span>
+        <span>{this.props.homeScore} | {this.props.awayScore} </span>
       </div>
     );
   }
@@ -58,6 +58,8 @@ class GameBox extends React.Component{
           status={games.status.status}
           inningState={games.status.inning_state}
           inning={games.status.inning}
+          homeScore={games.linescore.r.home}
+          awayScore={games.linescore.r.away}
         />
       );
     });
