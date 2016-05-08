@@ -1,38 +1,53 @@
 /* Pinetar by Eric Stout */
-class SingleGame extends React.Component{
+
+class FinalGame extends React.Component{
   render(){
-    if( this.props.status == 'In Progress' || this.props.status == 'Final'){
-      return(
-        <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
-          <h2>
-          {this.props.homeTeam} vs. {this.props.awayTeam}
-          </h2>
-          <h4>
-            {this.props.status} | {this.props.inningState} {this.props.inning}
-          </h4>
-          <p>Current Batter: {this.props.currentBatter} <br />
-            Current Pitcher: {this.props.currentPitcher}
-          </p>
+    return(
+      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+        <h2>
+        {this.props.homeTeam} vs. {this.props.awayTeam}
+        </h2>
+        <h4>
+          {this.props.status} | {this.props.inningState} {this.props.inning}
+        </h4>
+      </div>
+    );
+  }
+}
 
-        </div>
-      );
-    } else{
-      return(
-        <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
-          <h2>
-          {this.props.homeTeam} vs. {this.props.awayTeam}
-          </h2>
-          <h4>
-            {this.props.status} | {this.props.inningState} {this.props.inning}
-          </h4>
-          <p>Starting Pitcher: {this.props.homeStartingPitcher} <br />
-            Starting Pitcher: {this.props.awayStartingPitcher}
-          </p>
+class CurrentGame extends React.Component{
+  render(){
+    return(
+      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+        <h2>
+        {this.props.homeTeam} vs. {this.props.awayTeam}
+        </h2>
+        <h4>
+          {this.props.status} | {this.props.inningState} {this.props.inning}
+        </h4>
+        <p>Current Batter: {this.props.currentBatter} <br />
+          Current Pitcher: {this.props.currentPitcher}
+        </p>
+      </div>
+    );
+  }
+}
 
-        </div>
-      );
-    }
-
+class UpcomingGame extends React.Component{
+  render(){
+    return(
+      <div style="display: inline-block; width: 50%; float: left; margin: 10px;">
+        <h2>
+        {this.props.homeTeam} vs. {this.props.awayTeam}
+        </h2>
+        <h4>
+          {this.props.status} | {this.props.inningState} {this.props.inning}
+        </h4>
+        <p>Starting Pitcher: {this.props.homeStartingPitcher} <br />
+          Starting Pitcher: {this.props.awayStartingPitcher}
+        </p>
+      </div>
+    );
   }
 }
 
@@ -89,7 +104,7 @@ class GameBox extends React.Component{
             awayStartingPitcher = games.away_probable_pitcher.name_display_roster;
 
         return(
-          <SingleGame
+          <UpcomingGame
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
@@ -100,14 +115,25 @@ class GameBox extends React.Component{
           />
         );
 
+      } else if ( status == 'Final') {
+        // if the game is final
+        return(
+          <FinalGame
+            homeTeam={homeTeam}
+            awayTeam={awayTeam}
+            status={status}
+            inningState={inningState}
+            inning={inning}
+          />
+        );
       } else{
 
-        // if the game is current or final
+        // if the game is current
         let currentPitcher  = games.pitcher.name_display_roster,
             currentBatter   =  games.batter.name_display_roster;
 
         return(
-          <SingleGame
+          <CurrentGame
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
