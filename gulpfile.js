@@ -15,7 +15,6 @@ var sassFiles   = ['./assets/scss/main.scss'],
 // Compile Sass
 gulp.task('sass', function() {
   return gulp.src( sassFiles )
-    .pipe(sourcemaps.init())
       .pipe(sass()
         .on('error', sass.logError))
         .on('error', notify.onError("Error compiling SASS!")
