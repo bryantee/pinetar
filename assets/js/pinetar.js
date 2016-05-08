@@ -3,7 +3,8 @@
 class FinalGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center">
+      <div className="col-4 text-center game-card">
+        <div className="game-card--container">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -14,6 +15,7 @@ class FinalGame extends React.Component{
           Winning Pitcher: {this.props.winningPitcher} <br />
           Losing Pitcher: {this.props.losingPitcher}
         </p>
+        </div>
       </div>
     );
   }
@@ -22,7 +24,8 @@ class FinalGame extends React.Component{
 class CurrentGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center">
+      <div className="col-4 text-center game-card">
+        <div className="game-card--container">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -32,6 +35,7 @@ class CurrentGame extends React.Component{
         <p>Current Batter: {this.props.currentBatter} <br />
           Current Pitcher: {this.props.currentPitcher}
         </p>
+        </div>
       </div>
     );
   }
@@ -40,7 +44,8 @@ class CurrentGame extends React.Component{
 class UpcomingGame extends React.Component{
   render(){
     return(
-      <div className="col-4 text-center">
+      <div className="col-4 text-center game-card">
+        <div className="game-card--container">
         <h2>
         {this.props.homeTeam} vs. {this.props.awayTeam}
         </h2>
@@ -51,6 +56,7 @@ class UpcomingGame extends React.Component{
           Starting Pitcher: {this.props.homeStartingPitcher} <br />
           Starting Pitcher: {this.props.awayStartingPitcher}
         </p>
+        </div>
       </div>
     );
   }

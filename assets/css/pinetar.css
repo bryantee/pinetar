@@ -379,3 +379,7 @@ body {
 img {
   max-width: 100%;
   height: auto; }
+
+.game-card--container {
+  border: 5px solid #111111;
+  padding: 10px; }
