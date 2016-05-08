@@ -50,7 +50,7 @@ class GameBox extends React.Component{
     const games = this.state.games;
 
     return games.map((games) => {
-      const homeTeam =  games.home_team_name,
+        let homeTeam =  games.home_team_name,
             awayTeam =  games.away_team_name,
             status   = games.status.status,
             inningState =  games.status.inning_state,
