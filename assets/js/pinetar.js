@@ -57,8 +57,10 @@ class GameBox extends React.Component{
             inning   =  games.status.inning;
 
       // if game is in preview
-      if( status == 'Preview'){
-        status = games.home_time + '' + games.home_time_zone;
+      if( status == 'Preview' || status == 'Pre-Game'){
+        status = games.home_time + ' ' + games.home_time_zone; // Change the Preview status text to show Start Time
+        inningState = '';
+        inning = '';
       }
 
       return(
