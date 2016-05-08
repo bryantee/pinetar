@@ -21,6 +21,8 @@ body{
   background: white;
   border-top: 15px solid $black;
   font-family: $open;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6{
