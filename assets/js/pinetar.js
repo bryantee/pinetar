@@ -10,6 +10,10 @@ class FinalGame extends React.Component{
         <h4>
           {this.props.status} | {this.props.inningState} {this.props.inning}
         </h4>
+        <p>
+          Winning Pitcher: {this.props.winningPitcher} <br />
+          Losing Pitcher: {this.props.losingPitcher}
+        </p>
       </div>
     );
   }
@@ -125,6 +129,8 @@ class GameBox extends React.Component{
             status={status}
             inningState={inningState}
             inning={inning}
+            winningPitcher={winningPitcher}
+            losingPitcher={losingPitcher}
           />
         );
       } else{
