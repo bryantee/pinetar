@@ -111,7 +111,7 @@ class GameBox extends React.Component{
           />
         );
 
-      } else if ( status == 'Final') {
+      } else if ( status == 'Final' || status == 'Game Over') {
         // if the game is final
         return(
           <FinalGame
