@@ -379,6 +379,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+a {
+  color: #cf3d3d; }
+
+a:visited {
+  text-decoration: none; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", Helvetica, sans-serif;
   text-transform: uppercase;
@@ -402,3 +408,21 @@ img {
 
 .game-notes p {
   font-size: 12px; }
+
+footer {
+  background: #111111;
+  position: relative;
+  margin-top: 60px;
+  padding: 40px 0; }
+  footer p {
+    color: white;
+    font-size: 14px; }
+  footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    footer nav ul li {
+      display: inline-block; }
+      footer nav ul li a {
+        display: block;
+        padding: 0 5px; }
