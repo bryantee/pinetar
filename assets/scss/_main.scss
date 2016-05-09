@@ -1,0 +1,98 @@
+// Pinetar Stylesheet
+// Author: Eric Stout <ericwstout.com>
+
+// Color Variables
+$black:     #111111;
+
+// Font Families
+$open:      'Open Sans', Helvetica, sans-serif;
+
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+body{
+  background: white;
+  border-top: 15px solid $black;
+  font-family: $open;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a{
+  color: rgb(207, 61, 61);
+}
+
+a:visited{
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $open;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+header{
+  margin-bottom: 40px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.game-card{
+  margin-bottom: 30px;
+}
+
+.game-card--container{
+  border: 2px solid $black;
+  padding: 10px;
+  box-shadow: 0 5px 37px -7px #ccc;
+}
+
+.game-notes{
+  p{
+    font-size: 12px;
+  }
+}
+
+#pinetar-about{
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+footer{
+  background: $black;
+  position: relative;
+  margin-top: 60px;
+  padding: 40px 0;
+  p{
+    color: white;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+  nav{
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li{
+        display: inline-block;
+        a{
+          display: block;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}
