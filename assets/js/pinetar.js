@@ -278,6 +278,10 @@ class GameBox extends React.Component{
     let today = month + day;
 
     this.setState({date: today});
+
+    return(
+      <IntroContent date={this.state.date} />
+    );
   }
 
   _mapGameScores(){
@@ -416,8 +420,13 @@ class GameBox extends React.Component{
   }
 
   render() {
-    const gameList = this._mapGameScores();
+    const gameList = this._mapGameScores(),
+          introContent = this._getDate();
+
     return(
+      <div>
+        {introContent}
+      </div>
       <div className="row">
         {gameList}
       </div>
