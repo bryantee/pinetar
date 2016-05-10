@@ -409,6 +409,9 @@ img {
 .game-notes p {
   font-size: 12px; }
 
+.game-pbp {
+  border-top: 2px solid #111111; }
+
 #pinetar-about {
   min-height: 100%;
   min-height: 100vh; }
