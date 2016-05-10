@@ -290,7 +290,7 @@ class GameBox extends React.Component{
           let   awayScore = games.linescore.r.away,
                 homeScore = games.linescore.r.home;
           return(
-            <FinalGame
+            <Postponed
               key={games.home_team_id}
               homeTeam={homeTeam}
               awayTeam={awayTeam}
@@ -303,7 +303,7 @@ class GameBox extends React.Component{
           );
         } else{
           return(
-            <FinalGame
+            <Postponed
               key={games.home_team_id}
               homeTeam={homeTeam}
               awayTeam={awayTeam}
