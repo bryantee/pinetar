@@ -286,7 +286,7 @@ class GameBox extends React.Component{
         );
       } else if ( status == 'Postponed') {
 
-        if( games.linescore.r.away && games.linescore.r.home ){
+        if( games.linescore ){
           let   awayScore = games.linescore.r.away,
                 homeScore = games.linescore.r.home;
           return(
