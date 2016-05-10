@@ -150,7 +150,7 @@ class CurrentGame extends React.Component{
             <div className="col-12 text-left game-notes">
               <p>
                 <strong>Current Pitcher:</strong> {this.props.currentPitcher} <br />
-                <strong>Current Batter: </strong> {this.props.currentBatter} ({batterHits}-{batterAtBats} Avg: {batterAVG})
+                <strong>Current Batter: </strong> {this.props.currentBatter} ({this.props.batterHits}-{this.props.batterAtBats} Avg: {this.props.batterAVG})
               </p>
             </div>
           </div>
