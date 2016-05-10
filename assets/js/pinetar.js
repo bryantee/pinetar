@@ -155,6 +155,15 @@ class CurrentGame extends React.Component{
             </div>
           </div>
 
+          <div className="row">
+            <div className="col-12 text-left game-notes">
+              <p>
+                <strong>Last Play:</strong> <br />
+                {this.props.pbp}
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     );
@@ -331,6 +340,7 @@ class GameBox extends React.Component{
             batterAtBats    = games.batter.ab,
             batterHits      = games.batter.h,
             batterAVG       = games.batter.avg,
+            pbp             = games.pbp.last,
             outs            = games.status.o;
 
         return(
@@ -348,6 +358,7 @@ class GameBox extends React.Component{
             currentPitcher={currentPitcher}
             homeScore={homeScore}
             awayScore={awayScore}
+            pbp={pbp}
             outs={outs}
           />
         );
