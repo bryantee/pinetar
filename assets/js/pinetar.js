@@ -275,7 +275,7 @@ class GameBox extends React.Component{
       console.log('Baseball is over :-( ');
     }
 
-    let today = month + day;
+    let today = month + '' + day;
 
     this.setState({date: today});
 
@@ -426,7 +426,6 @@ class GameBox extends React.Component{
     return(
 
       <div className="row">
-        {introContent}
         {gameList}
       </div>
     );
