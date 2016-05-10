@@ -279,8 +279,10 @@ class GameBox extends React.Component{
 
     this.setState({date: today});
 
+    let todaysDate = this.state.date;
+
     return(
-      <IntroContent date={this.state.date} />
+      <IntroContent date={todaysDate} />
     );
   }
 
