@@ -418,10 +418,9 @@ class GameBox extends React.Component{
   render() {
     const gameList = this._mapGameScores();
     return(
-      <IntroContent date={this.state.date} />
-      // <div className="row">
-      //   {gameList}
-      // </div>
+      <div className="row">
+        {gameList}
+      </div>
     );
   }
 }
