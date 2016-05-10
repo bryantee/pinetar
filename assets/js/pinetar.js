@@ -287,18 +287,33 @@ class GameBox extends React.Component{
       } else if ( status == 'Postponed') {
         let   awayScore = games.linescore.r.away,
               homeScore = games.linescore.r.home;
-        return(
-          <FinalGame
-            key={games.home_team_id}
-            homeTeam={homeTeam}
-            awayTeam={awayTeam}
-            status={status}
-            inningState={inningState}
-            inning={inning}
-            homeScore={homeScore}
-            awayScore={awayScore}
-          />
-        );
+
+        if( awayScore && homeScore ){
+          return(
+            <FinalGame
+              key={games.home_team_id}
+              homeTeam={homeTeam}
+              awayTeam={awayTeam}
+              status={status}
+              inningState={inningState}
+              inning={inning}
+              homeScore={homeScore}
+              awayScore={awayScore}
+            />
+          );
+        } else{
+          return(
+            <FinalGame
+              key={games.home_team_id}
+              homeTeam={homeTeam}
+              awayTeam={awayTeam}
+              status={status}
+              inningState={inningState}
+              inning={inning}
+            />
+          );
+        }
+
       } else{
 
         // if the game is current
