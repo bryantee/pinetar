@@ -330,7 +330,7 @@ class GameBox extends React.Component{
             currentBatter   = games.batter.name_display_roster,
             batterAtBats    = games.batter.ab,
             batterHits      = games.batter.h,
-            batter          = games.batter.avg,
+            batterAVG       = games.batter.avg,
             outs            = games.status.o;
 
         return(
