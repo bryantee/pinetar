@@ -1,17 +1,5 @@
 /* Pinetar by Eric Stout */
 
-class IntroContent extends React.Component{
-  render(){
-    return(
-      <div className="row">
-        <div className="col-8 col-centered text-center">
-          <h1>Games for {this.props.date}</h1>
-        </div>
-      </div>
-    );
-  }
-}
-
 class Postponed extends React.Component{
   render(){
     return(
@@ -221,8 +209,7 @@ class GameBox extends React.Component{
     super();
 
     this.state = {
-      games: [],
-      date: ''
+      games: []
     };
   }
 
@@ -248,43 +235,6 @@ class GameBox extends React.Component{
     });
   }
 
-  _getDate(){
-    let     d = new Date(),
-        month = d.getMonth()+1,
-        day   = d.getDate();
-
-    if( month == 3 ){
-      month = 'March';
-    } else if ( month == 4 ) {
-      month = 'April';
-    } else if ( month == 5 ) {
-      month = 'May';
-    } else if ( month == 6 ) {
-      month = 'June'
-    } else if ( month == 7 ) {
-      month = 'July';
-    } else if ( month == 8 ) {
-      month = 'August';
-    } else if ( month == 9 ) {
-      month = 'September';
-    } else if ( month == 10 ) {
-      month = 'October';
-    } else if ( month == 11 ) {
-      month = 'November';
-    } else{
-      console.log('Baseball is over :-( ');
-    }
-
-    let today = month + '' + day;
-
-    this.setState({date: today});
-
-    let todaysDate = this.state.date;
-
-    return(
-      <IntroContent date={todaysDate} />
-    );
-  }
 
   _mapGameScores(){
     const games = this.state.games;
@@ -422,8 +372,7 @@ class GameBox extends React.Component{
   }
 
   render() {
-    const gameList = this._mapGameScores(),
-          introContent = this._getDate();
+    const gameList = this._mapGameScores();
 
     return(
 
