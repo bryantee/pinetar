@@ -103,6 +103,11 @@ class FinalGame extends React.Component{
 
 class CurrentGame extends React.Component{
   render(){
+    if( this.props.outs > 1 ){
+      let outText = 'Outs';
+    } else{
+      let outText = 'Out';
+    }
     return(
       <div className="col-6 text-center game-card">
         <div className="game-card--container container">
@@ -136,7 +141,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left">
               <h4>
-                {this.props.inningState} {this.props.inning}
+                {this.props.inningState} {this.props.inning} - {this.props.outs} Outs
               </h4>
             </div>
           </div>
@@ -145,7 +150,16 @@ class CurrentGame extends React.Component{
             <div className="col-12 text-left game-notes">
               <p>
                 <strong>Current Pitcher:</strong> {this.props.currentPitcher} <br />
-                <strong>Current Batter: </strong> {this.props.currentBatter}
+                <strong>Current Batter: </strong> {this.props.currentBatter} ({this.props.batterHits}-{this.props.batterAtBats} Avg: {this.props.batterAVG})
+              </p>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-12 text-left game-notes game-pbp">
+              <p>
+                <strong>Play by Play:</strong> <br />
+                {this.props.pbp}
               </p>
             </div>
           </div>
@@ -220,6 +234,7 @@ class GameBox extends React.Component{
       }.bind(this)
     });
   }
+
 
   _mapGameScores(){
     const games = this.state.games;
@@ -310,6 +325,9 @@ class GameBox extends React.Component{
               awayTeam={awayTeam}
               status={status}
               inningState={inningState}
+              awayTeam={awayTeam}
+              status={status}
+              inningState={inningState}
               inning={inning}
               reason={reason}
             />
@@ -322,7 +340,12 @@ class GameBox extends React.Component{
         let currentPitcher  = games.pitcher.name_display_roster,
             awayScore       = games.linescore.r.away,
             homeScore       = games.linescore.r.home,
-            currentBatter   =  games.batter.name_display_roster;
+            currentBatter   = games.batter.name_display_roster,
+            batterAtBats    = games.batter.ab,
+            batterHits      = games.batter.h,
+            batterAVG       = games.batter.avg,
+            pbp             = games.pbp.last,
+            outs            = games.status.o;
 
         return(
           <CurrentGame
@@ -333,9 +356,14 @@ class GameBox extends React.Component{
             inningState={inningState}
             inning={inning}
             currentBatter={currentBatter}
+            batterAtBats={batterAtBats}
+            batterHits={batterHits}
+            batterAVG={batterAVG}
             currentPitcher={currentPitcher}
             homeScore={homeScore}
             awayScore={awayScore}
+            pbp={pbp}
+            outs={outs}
           />
         );
       }
@@ -345,7 +373,9 @@ class GameBox extends React.Component{
 
   render() {
     const gameList = this._mapGameScores();
+
     return(
+
       <div className="row">
         {gameList}
       </div>
