@@ -35,7 +35,7 @@ class Postponed extends React.Component{
           <div className="row">
             <div className="col-12 text-left">
               <h4>
-                {this.props.status} {this.props.inningState} {this.props.inning}
+                {this.props.status} ({this.props.reason}) {this.props.inningState} {this.props.inning}
               </h4>
             </div>
           </div>
@@ -285,7 +285,7 @@ class GameBox extends React.Component{
           />
         );
       } else if ( status == 'Postponed') {
-
+        let reason = games.status.reason;
         if( games.linescore ){
           let   awayScore = games.linescore.r.away,
                 homeScore = games.linescore.r.home;
@@ -299,6 +299,7 @@ class GameBox extends React.Component{
               inning={inning}
               homeScore={homeScore}
               awayScore={awayScore}
+              reason={reason}
             />
           );
         } else{
@@ -310,6 +311,7 @@ class GameBox extends React.Component{
               status={status}
               inningState={inningState}
               inning={inning}
+              reason={reason}
             />
           );
         }
