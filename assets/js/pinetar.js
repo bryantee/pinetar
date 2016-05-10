@@ -424,10 +424,9 @@ class GameBox extends React.Component{
           introContent = this._getDate();
 
     return(
-      <div>
-        {introContent}
-      </div>
+
       <div className="row">
+        {introContent}
         {gameList}
       </div>
     );
