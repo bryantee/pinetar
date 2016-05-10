@@ -158,7 +158,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left game-notes game-pbp">
               <p>
-                <strong>Last Play:</strong> <br />
+                <strong>Play by Play:</strong> <br />
                 {this.props.pbp}
               </p>
             </div>
