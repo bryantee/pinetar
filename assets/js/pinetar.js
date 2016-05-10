@@ -141,7 +141,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left">
               <h4>
-                {this.props.inningState} {this.props.inning} {this.props.outs} - Outs
+                {this.props.inningState} {this.props.inning} - {this.props.outs} Outs
               </h4>
             </div>
           </div>
