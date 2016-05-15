@@ -103,11 +103,7 @@ class FinalGame extends React.Component{
 
 class CurrentGame extends React.Component{
   render(){
-    if( this.props.outs > 1 ){
-      let outText = 'Outs';
-    } else{
-      let outText = 'Out';
-    }
+
     return(
       <div className="col-6 text-center game-card">
         <div className="game-card--container container">
@@ -141,7 +137,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left">
               <h4>
-                {this.props.inningState} {this.props.inning} - {this.props.outs} Outs
+                {this.props.inningState} {this.props.inning} - {this.props.outs} Out
               </h4>
             </div>
           </div>
