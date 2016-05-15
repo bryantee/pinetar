@@ -145,7 +145,7 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left game-notes">
               <p>
-                <strong>Current Pitcher:</strong> #{this.props.currentPitchernum} {this.props.currentPitcher} <br />
+                <strong>Current Pitcher:</strong> #{this.props.currentPitchernum} {this.props.currentPitcher} ({this.props.pitcherERA} ERA) <br />
                 <strong>Current Batter: </strong> #{this.props.currentBatternum} {this.props.currentBatter} ({this.props.batterHits}-{this.props.batterAtBats} Avg: {this.props.batterAVG})
               </p>
             </div>
@@ -335,6 +335,7 @@ class GameBox extends React.Component{
         // if the game is current
         let currentPitcher  = games.pitcher.name_display_roster,
             currentPitchernum  = games.pitcher.number,
+            pitcherERA      = games.pitcher.era,
             awayScore       = games.linescore.r.away,
             homeScore       = games.linescore.r.home,
             currentBatter   = games.batter.name_display_roster,
@@ -360,6 +361,7 @@ class GameBox extends React.Component{
             batterAVG={batterAVG}
             currentPitcher={currentPitcher}
             currentPitchernum={currentPitchernum}
+            pitcherERA={pitcherERA}
             homeScore={homeScore}
             awayScore={awayScore}
             pbp={pbp}
