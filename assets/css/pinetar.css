@@ -403,8 +403,7 @@ img {
 
 .game-card--container {
   border: 2px solid #111111;
-  padding: 10px;
-  box-shadow: 0 5px 37px -7px #ccc; }
+  padding: 10px; }
 
 .game-notes p {
   font-size: 12px; }
