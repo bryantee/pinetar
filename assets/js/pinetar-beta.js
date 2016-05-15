@@ -145,8 +145,8 @@ class CurrentGame extends React.Component{
           <div className="row">
             <div className="col-12 text-left game-notes">
               <p>
-                <strong>Current Pitcher:</strong> {this.props.currentPitcher} <br />
-                <strong>Current Batter: </strong> {this.props.currentBatter} ({this.props.batterHits}-{this.props.batterAtBats} Avg: {this.props.batterAVG})
+                <strong>Current Pitcher:</strong> #{this.props.currentPitchernum} {this.props.currentPitcher} <br />
+                <strong>Current Batter: </strong> #{this.props.currentBatternum} {this.props.currentBatter} ({this.props.batterHits}-{this.props.batterAtBats} Avg: {this.props.batterAVG})
               </p>
             </div>
           </div>
@@ -334,9 +334,11 @@ class GameBox extends React.Component{
 
         // if the game is current
         let currentPitcher  = games.pitcher.name_display_roster,
+            currentPitchernum  = games.pitcher.number,
             awayScore       = games.linescore.r.away,
             homeScore       = games.linescore.r.home,
             currentBatter   = games.batter.name_display_roster,
+            currentBatternum   = games.batter.number,
             batterAtBats    = games.batter.ab,
             batterHits      = games.batter.h,
             batterAVG       = games.batter.avg,
@@ -352,10 +354,12 @@ class GameBox extends React.Component{
             inningState={inningState}
             inning={inning}
             currentBatter={currentBatter}
+            currentBatternum={currentBatternum}
             batterAtBats={batterAtBats}
             batterHits={batterHits}
             batterAVG={batterAVG}
             currentPitcher={currentPitcher}
+            currentPitchernum={currentPitchernum}
             homeScore={homeScore}
             awayScore={awayScore}
             pbp={pbp}
