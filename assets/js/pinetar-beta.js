@@ -258,7 +258,7 @@ class GameBox extends React.Component{
 
         return(
           <UpcomingGame
-            key={games.home_team_id}
+            key={games.game_pk}
             homeTeam={homeTeam}
             homeAbbrev={homeAbbrev}
             awayTeam={awayTeam}
@@ -283,7 +283,7 @@ class GameBox extends React.Component{
 
         return(
           <FinalGame
-            key={games.home_team_id}
+            key={games.game_pk}
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
@@ -302,7 +302,7 @@ class GameBox extends React.Component{
                 homeScore = games.linescore.r.home;
           return(
             <Postponed
-              key={games.home_team_id}
+              key={games.game_pk}
               homeTeam={homeTeam}
               awayTeam={awayTeam}
               status={status}
@@ -316,7 +316,7 @@ class GameBox extends React.Component{
         } else{
           return(
             <Postponed
-              key={games.home_team_id}
+              key={games.game_pk}
               homeTeam={homeTeam}
               awayTeam={awayTeam}
               status={status}
@@ -348,7 +348,7 @@ class GameBox extends React.Component{
 
         return(
           <CurrentGame
-            key={games.home_team_id}
+            key={games.game_pk}
             homeTeam={homeTeam}
             awayTeam={awayTeam}
             status={status}
